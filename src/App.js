@@ -5,7 +5,7 @@ import Chatsection from './Chatsection';
 function App() {
   return (
     <div className="app">
-      <h1>My whatsapp clone</h1>
+      {/* <h1>My whatsapp clone</h1> */}
       <div className="app-body">
         {/* Chat component */}
         <Chatsection />
