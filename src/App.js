@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react';
-
+import Pusher from 'pusher-js'
 import './App.css';
 import Chatsection from './Chatsection';
 
