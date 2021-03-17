@@ -1,26 +1,31 @@
 import React from 'react';
 
 
-const Chatsection = () => {
+const Chatsection = ({messages}) => {
     
 
     return (
         <div className="chatBody">
         {/* <div>I am chat Section</div> */}
         <div className="messageBody">
-            <p className="chat-message">
+            { messages.map(message =>(
+                <p className={`chat-message ${message.received && "chat-receiver"}`}>
+                <span className="chatName">
+                    {message.name}
+                </span>
+                {message.chats}
+            </p>
+            ))
+                
+            }
+            {/* <p className="chat-message">
                 <span className="chatName">
                     Preetam
                 </span>
                 This is my message.
-            </p>
+            </p> */}
 
-            <p className="chat-message chat-receiver">
-                <span className="chatName">
-                    Preetam
-                </span>
-                This is my message.
-            </p>
+            
         </div>
         <div className="chat-footer">
             <form>
