@@ -5,7 +5,7 @@ import Chatsection from './Chatsection';
 
 function App() {
   useEffect(() =>{
-    const pusher = new Pusher('07caf53696a6d62697d4', {
+    const pusher = new Pusher(process.env.REACT_APP_PUSHERID, {
       cluster: 'mt1'
     });
 
