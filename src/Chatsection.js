@@ -1,15 +1,29 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
+import axios from './axios';
+
 
 
 const Chatsection = ({messages}) => {
     
+    const [input, setInput] = useState("");
+    
+    const sendMessage = async e =>{
+        e.preventDefault();
 
+        await axios.post('/chats',{
+            name: "Preetam",
+            chats : input,
+            received : false
+        })
+
+        setInput('');
+    }
     return (
         <div className="chatBody">
         {/* <div>I am chat Section</div> */}
         <div className="messageBody">
             { messages.map(message =>(
-                <p className={`chat-message ${message.received && "chat-receiver"}`}>
+                <p className={`chat-message ${!message.received && "chat-receiver"}`}>
                 <span className="chatName">
                     {message.name}
                 </span>
@@ -31,12 +45,12 @@ const Chatsection = ({messages}) => {
             <form>
             <input 
                 type="text" 
-                // value={input}
-                // onChange={(event) => setInput(event.target.value)}
+                value={input}
+                onChange={(event) => setInput(event.target.value)}
                 placeholder = "Type message"
             />
             <button
-                // onClick={sendMessage}
+                onClick={sendMessage}
                 type="submit"
             >
                 Send

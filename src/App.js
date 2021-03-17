@@ -27,6 +27,15 @@ function App() {
       // alert(JSON.stringify(newMessage));
       setMessages([...messages,newMessage]);
     });
+
+    return ()=>{
+      channel.unbind_all();
+      channel.unsubscribe('messages');
+    }
+
+
+
+
   },[messages])
   console.log(messages)
   return (
